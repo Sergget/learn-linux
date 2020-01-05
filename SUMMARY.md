@@ -24,6 +24,7 @@
 * [09 system process](09&#32;system&#32;process.md)
 * [10 network basics](10&#32;network&#32;basics.md)
   * [10-1 webdav服务器](10-1&#32;webdav服务器.md)
+  * [10-2利用Nextcloud搭建私有云](10-2_利用Nextcloud搭建私有云.md)
 * [99 tools](99&#32;tools.md)
   * [LAMP](./tools/LAMP.md)
   * [snap](./tools/snap.md)

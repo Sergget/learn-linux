@@ -1,12 +1,12 @@
-# webdav 
+# 搭建一个webdav服务器
 
 ## 简介
-webdav是“Web-based Distributed Authoring and Versioning”的简称。作为FTP的代替，在局域网内便捷地共享、传输文件。
+webdav是“Web-based Distributed Authoring and Versioning”的简称。作为FTP的代替，在局域网内便捷地共享、传输文件。本文简单介绍在ubuntu/debian上搭建webdav服务器。
 
 ## 安装
 1. 安装Apache2服务器
    ```
-   sudol apt install apache2
+   sudo apt install apache2
    ```
 2. 测试工具cadaver*:
    
@@ -14,6 +14,7 @@ webdav是“Web-based Distributed Authoring and Versioning”的简称。作为F
    ```
    sudo apt install cadaver
    ```
+
 ## 配置
 1. 启用相关模块
    ```
@@ -74,8 +75,8 @@ webdav是“Web-based Distributed Authoring and Versioning”的简称。作为F
    sudo service apache2 restart
    ```
 
-   ## 验证
-   使用命令行 cadaver 进入登录
-   ```
-   cadaver http://127.0.0.1/webdav/
-   ```
+## 验证
+使用命令行 cadaver 进入登录
+```
+cadaver http://127.0.0.1/webdav/
+```
