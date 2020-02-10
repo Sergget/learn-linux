@@ -1,4 +1,6 @@
-# 进程管理
+# 系统管理
+
+## 进程管理
 
 ### 查看所有进程
   - `ps aux` 查看系统中所有进程，使用BSD模式
@@ -34,7 +36,7 @@
 
 
 ******
-# 工作管理
+## 工作管理
 - 将前台占用bash的进程放入后台（相当于windows中的最小化）：在命令后加`&`
 - `jobs -l` 查看后台工作列表
 - `fg %[工作号]` 将后台暂停的工作恢复到前台，`%`可以省略
@@ -48,7 +50,7 @@
 3. 使用`nohup`命令:`nohup [命令] &`
 
 *****
-# 系统管理
+## 资源监视
 - `vmstat`命令监控系统资源
 `vmstat [刷新延时] [刷新次数]`
 - `dmesg`显示内核自检信息
@@ -75,8 +77,79 @@
   - `lsof [系统文件]`： 查看系统文件被哪个进程调用
   - `lsof -c [进程名]`：查看进程调用了那些文件
 
-# 定时任务
-### `crontab`循环定时任务
-- `crontab -e` 进入编辑器，编辑任务
+## 定时任务
+### crontab 基本使用
+
+- `crontab -e` 进入编辑器，编辑任务，编辑当前用户的定时任务，如果没有当前用户的配置文件，则会在/var/spool/cron/crontabs 下创建一个以用户名为名的文件
 - `crontab -l` 列出当前用户的crontab任务
 - `crontab -r` 清除所有的crontab任务
+
+crontab -e 创建的文件编辑格式：
+
+```shell
+# m h  dom mon dow   command
+```
+
+分别为: `分 时 日 月 星期几 执行的命令`
+
+查看crontab服务状态：
+	
+> service crond status
+
+手动启动crontab服务：
+	
+> service crond start
+
+### crontab 文件编辑
+
+日志文件: ll /var/log/cron*
+编辑文件: vim /etc/crontab
+
+/etc/crontab 下文件的编辑格式：
+
+```shell
+# m h dom mon dow user  command
+```
+
+分别为: `分 时 日 月 星期几 用户 执行的命令`
+
+### 介绍crontab文件
+- /etc/crontab
+在这个文件里并没有记录系统要执行哪些工作，而是记录了下面四个子目录。
+- /etc/cron.hourly
+- /etc/cron.daily
+- /etc/cron.weekly
+- /etc/cron.monthly
+
+这些子目录里存放了一些脚本，到了crontab所指定的时间点，系统就会去执行这些子目录里的脚本。 
+
+### 限制对 cron 的使用
+
+/etc/cron.allow和/etc/cron.deny 文件被用来限制对 cron 的使用。
+
+- 这两个使用控制文件的格式都是每行一个用户。两个文件都不允许空格。如果使用控制文件被修改了，cron 守护进程（crond）不必被重启。
+- 使用控制文件在每次用户添加或删除一项 cron 任务时都会被读取。无论使用控制文件中的规定如何，root 都总是可以使用 cron。
+- 如果 cron.allow 文件存在，只有其中列出的用户才被允许使用 cron，并且 cron.deny 文件会被忽略。
+- 如果 cron.allow 文件不存在，所有在 cron.deny 中列出的用户都被禁止使用 cron。
+
+### 脚本
+
+执行脚本的command：
+
+> bash ...../shell_to_be_excuted.sh
+
+**注意：**
+
+1. 环境变量问题，例如crontab不能识别Java的环境变量
+    crontab执行shell时，只能识别为数不多的环境变量，普通的环境变量是无法识别的，所以在编写shell时，**最好使用export重新声明变量，确保脚本执行**。 
+2. 命令的执行最好用脚本
+3. **脚本权限加/bin/sh**，规范路径/server/scripts
+4. 时间变量用反斜线转义，最好用脚本
+5. 定时任务添加注释
+7. **定时任务里面的程序脚本尽量用全路径**
+8. 避免不必要的程序以及命令输出
+9. 定时任务之前添加注释
+10. 打包到文件目录的上一级
+11. 当crontab突然失效时，可以尝试/etc/init.d/crond restart解决问题。或者查看日志看某个job有没有执行/报错tail -f /var/log/cron。
+12. **千万别乱运行crontab -r**。它从Crontab目录（/var/spool/cron）中删除用户的Crontab文件。删除了该用户的所有crontab都没了。
+13. 在crontab中%是有特殊含义的，表示换行的意思。如果要用的话必须进行转义\%，如经常用的date ‘+%Y%m%d’在crontab里是不会执行的，应该换成date ‘+\%Y\%m\%d’
