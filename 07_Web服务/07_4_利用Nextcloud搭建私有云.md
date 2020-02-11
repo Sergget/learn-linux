@@ -1,4 +1,4 @@
-# 利用Nextcloud搭建私有云
+# 7.4 利用Nextcloud搭建私有云
 
 ## 简介
 本文中Nextcloud服务器安装在ubuntu-server上， 使用snap打包安装。snap包使用方便，权限相较于apt较为复杂，本文中一并介绍使用nextcloud的snap包时遇到的一系列问题。

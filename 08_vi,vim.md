@@ -1,4 +1,4 @@
-# Linux Vi/Vim 编辑器
+# 8 Vi/Vim 编辑器
 
 所有的 Unix Like 系统都会内建 vi 文书编辑器，其他的文书编辑器则不一定会存在。
 
