@@ -40,7 +40,6 @@
     * [10.11 shell 文件包含](10_shell/10_11_shell_文件包含.md)
 * [99 tools](99_tools.md)
     * [snap](./tools/snap.md)
-    * [ubuntu on windows](./tools/ubuntu_on_windows.md)
     * [shadowsocks指南](tools/shadowsocks指南.md)
     * [常用软件包](tools/常用软件包.md)
 * [linux others](others.md)
