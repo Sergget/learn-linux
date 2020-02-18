@@ -224,8 +224,8 @@ fi
 
 |运算符	|说明|	举例|
 |-|-|-|
-|&&|	逻辑的 AND|	[[ $a -lt 100 && $b -gt 100 ]] 返回 false
-|\|\||	逻辑的 OR|	[[ $a -lt 100 || $b -gt 100 ]] 返回 true
+|&&|逻辑的 AND|[[ $a -lt 100 && $b -gt 100 ]] 返回 false|
+|&#124;&#124;|逻辑的 OR|[[ $a -lt 100 &#124;&#124; $b -gt 100 ]] 返回 true|
 
 
 逻辑运算符实例如下：
@@ -327,26 +327,28 @@ abc : 字符串不为空
 
 |操作符|	说明	|举例
 |-|-|-|
-|-b file|	检测文件是否是块设备文件，如果是，则返回 true。|	[ -b $file ] 返回 false。
-|-c file|	检测文件是否是字符设备文件，如果是，则返回 true。|	[ -c $file ] 返回 false。
-|-d file|	检测文件是否是目录，如果是，则返回 true。|	[ -d $file ] 返回 false。
-|-f file|	检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。	|[ -f $file ] 返回 true。
-|-g file|	检测文件是否设置了 SGID 位，如果是，则返回 true。	|[ -g $file ] 返回 false。
-|-k file|	检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。|	[ -k $file ] 返回 false。
-|-p file|	检测文件是否是有名管道，如果是，则返回 true。|	[ -p $file ] 返回 false。
-|-u file|	检测文件是否设置了 SUID 位，如果是，则返回 true。|	[ -u $file ] 返回 false。
-|-r file|	检测文件是否可读，如果是，则返回 true。|	[ -r $file ] 返回 true。
-|-w file|	检测文件是否可写，如果是，则返回 true。	|[ -w $file ] 返回 true。
-|-x file|	检测文件是否可执行，如果是，则返回 true。	|[ -x $file ] 返回 true。
-|-s file|	检测文件是否为空（文件大小是否大于0），不为空返回 true。|	[ -s $file ] 返回 true。
-|-e file|	检测文件（包括目录）是否存在，如果是，则返回 true。|	[ -e $file ] 返回 true。
+|-b file|检测文件是否是块设备文件，如果是，则返回 true。|[ -b $file ] 返回 false。
+|-c file|检测文件是否是字符设备文件，如果是，则返回 true。|[ -c $file ] 返回 false。
+|-d file|检测文件是否是目录，如果是，则返回 true。|[ -d $file ] 返回 false。
+|-f file|检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。|[ -f $file ] 返回 true。
+|-g file|检测文件是否设置了 SGID 位，如果是，则返回 true。|[ -g $file ] 返回 false。
+|-k file|检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。|[ -k $file ] 返回 false。
+|-p file|检测文件是否是有名管道，如果是，则返回 true。|[ -p $file ] 返回 false。
+|-u file|检测文件是否设置了 SUID 位，如果是，则返回 true。|[ -u $file ] 返回 false。
+|-r file|检测文件是否可读，如果是，则返回 true。|[ -r $file ] 返回 true。
+|-w file|检测文件是否可写，如果是，则返回 true。|[ -w $file ] 返回 true。
+|-x file|检测文件是否可执行，如果是，则返回 true。|[ -x $file ] 返回 true。
+|-s file|检测文件是否为空（文件大小是否大于0），不为空返回 true。|[ -s $file ] 返回 true。
+|-e file|检测文件（包括目录）是否存在，如果是，则返回 true。|[ -e $file ] 返回 true。
 其他检查符：
 
 - -S: 判断某文件是否 socket。
 - -L: 检测文件是否存在并且是一个符号链接。
 
 变量 file 表示文件 /var/www/runoob/test.sh，它的大小为 100 字节，具有 rwx 权限。下面的代码，将检测该文件的各种属性：
-实例
+
+### 实例
+
 ```shell
 #!/bin/bash
 # author:菜鸟教程
@@ -396,7 +398,9 @@ else
    echo "文件不存在"
 fi
 ```
+
 执行脚本，输出结果如下所示：
+
 ```
 文件可读
 文件可写
