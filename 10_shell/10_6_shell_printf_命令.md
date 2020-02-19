@@ -1,4 +1,4 @@
-# Shell printf 命令
+# 10.6 Shell printf 命令
 上一章节我们学习了 Shell 的 echo 命令，本章节我们来学习 Shell 的另一个输出命令 printf。
 
 printf 命令模仿 C 程序库（library）里的 printf() 程序。

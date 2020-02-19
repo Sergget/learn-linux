@@ -1,4 +1,5 @@
 # 10 Shell
+* [10.0 Shell 基础](10_shell\10_0_shell_基础.md)
 * [10_1 shell 变量](10_shell\10_1_shell_变量.md)
 * [10_2 shell 传递参数](10_shell\10_2_shell_传递参数.md)
 * [10_3 shell数组](10_shell\10_3_shell数组.md)
