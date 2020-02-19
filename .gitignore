@@ -3,3 +3,6 @@ _book
 
 # vscode config
 .vscode
+
+# shell script
+*.sh
