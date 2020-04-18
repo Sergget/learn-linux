@@ -45,5 +45,5 @@
     * [shadowsocks指南](tools/shadowsocks指南.md)
     * [常用软件包](tools/常用软件包.md)
     * [为知笔记私有部署](tools\为知笔记私有部署.md)
+    * [将源码编译成deb包](tools\将源码编译成deb包.md)
 * [linux others](others.md)
-
