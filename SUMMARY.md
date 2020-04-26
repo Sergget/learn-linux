@@ -40,6 +40,7 @@
     * [10.9 shell 函数](10_shell/10_9_shell_函数.md)
     * [10.10 shell 输入,输出重定向](10_shell/10_10_shell_输入,输出重定向.md)
     * [10.11 shell 文件包含](10_shell/10_11_shell_文件包含.md)
+    * [10.12 管道命令](10_shell\10.12-管道命令.md)
 * [99 tools](99_tools.md)
     * [snap](./tools/snap.md)
     * [为知笔记私有部署](tools\为知笔记私有部署.md)
