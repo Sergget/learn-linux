@@ -83,7 +83,7 @@ sudo make install
 
 配置文件默认的许可目录如下：
 
-```apache
+```xml
 # Sets the default security model of the Apache2 HTTPD server. It does
 # not allow access to the root filesystem outside of /usr/share and /var/www.
 # The former is used by web applications packaged in Debian,
@@ -110,7 +110,7 @@ sudo make install
 
 如果要新增一个目录，如`/srv`,添加的代码段如下：
 
-```apache
+```xml
 <Directory /srv>
         Options Indexes FollowSymLinks
         AllowOverride None
@@ -132,7 +132,7 @@ apache 使用www-data用户访问文件和目录
 
 由于ssl证书是和域名绑定在一起的，在一个主机上运行多个域名的站点时就需要为不同的站点分别绑定域名，但即便是在运行单个域名的网站中我们也推荐绑定好域名，在对应的虚拟主机的配置文件下增加：
 
-```apache
+```xml
 ServerName Your_domain_Name
 ```
 
@@ -140,7 +140,7 @@ ServerName Your_domain_Name
 
 默认https站点配置文件在`/etc/apache2/sites-available/default-ssl.conf`中，ssl证书路径：
 
-```apache
+```xml
 #   A self-signed (snakeoil) certificate can be created by installing
 #   the ssl-cert package. See
 #   /usr/share/doc/apache2/README.Debian.gz for more info.
@@ -164,7 +164,7 @@ SSLCertificateChainFile /etc/apache2/ssl.crt/server-ca.crt
 
 然后增加下列配置:
 
-```apache
+```xml
 SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4
 SSLProxyCipherSuite HIGH:MEDIUM:!MD5:!RC4
 SSLHonorCipherOrder on
@@ -184,7 +184,7 @@ SSLProxyProtocol all -SSLv3
 
 在http虚拟主机的配置文件中增加如下配置：
 
-```apache
+```xml
 RewriteEngine on
 RewriteCond   %{HTTPS} !=on
 RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
@@ -207,7 +207,7 @@ RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
 
 如下代码段将本站点下`/proxy`目录下的请求全部转发至 `http://www.real_server.com`
 
-```apache
+```xml
 ProxyRequests off
  
 <Proxy /proxy>

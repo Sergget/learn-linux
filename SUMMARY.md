@@ -26,6 +26,7 @@
     * [7.2 Nginx服务器](07_Web服务/07_2_Nginx服务器.md)
     * [7.3 利用Apache搭建Webdav服务器](07_Web服务/07_3_利用Aache搭建webdav服务器.md)
     * [7.4 利用Nextcloud搭建私有云](07_Web服务/07_4_利用Nextcloud搭建私有云.md)
+    * [7.5 获得ssl证书](07_Web服务\07_5_获得ssl证书.md)
 * [8 vi,vim](08_vi,vim.md)
 * [10 shell](10_shell.md)
     * [10.0 Shell 基础](10_shell\10_0_shell_基础.md)

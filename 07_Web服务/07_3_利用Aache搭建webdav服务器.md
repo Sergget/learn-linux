@@ -43,7 +43,7 @@ webdav是“Web-based Distributed Authoring and Versioning”的简称。作为F
    sudo vim /etc/apache2/sites-available/webdav.conf
    ```
    在文件中插入以下内容并保存
-   ```apache
+   ```xml
    <VirtualHost *:80>
            ServerAdmin webmaster@localhost
            DocumentRoot /media/data/
