@@ -84,11 +84,14 @@ network:
 
     ```yaml
     network:
-    ethernets:
-        ens33:
-            dhcp4: true
-            wakeonlan: true
-    version: 2
+        renderer: networkd
+        ethernets:
+            ens33:
+                match:
+                    macaddress: 00:e0:4c:2a:0d:18
+                dhcp4: true
+                wakeonlan: true
+        version: 2
     ```
 
 所有配置项见 [官方文档](https://netplan.io/reference)
