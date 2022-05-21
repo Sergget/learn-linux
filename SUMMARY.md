@@ -1,6 +1,4 @@
-# Summary
-
-## 目录
+# 目录
 * [Introduction](README.md)
 * [1 系统启动](01_系统启动.md)
 * [2 系统目录](02_系统目录结构.md)
