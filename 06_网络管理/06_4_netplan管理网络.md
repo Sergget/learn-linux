@@ -2,7 +2,7 @@
 
 转载自：[https://www.jianshu.com/p/174656635e74](https://www.jianshu.com/p/174656635e74)，**对原文有补充**
 
-## 6.3.1 netplan简介
+## netplan简介
 
  [netplan](https://netplan.io/):抽象网络配置生成器 ，是一个用于配置 Linux 网络的简单工具。 通过 Netplan ，你只需用一个 YAML 文件描述每个网络接口需要配置成啥样即可。 根据这个配置描述， Netplan 便可帮你生成所有需要的配置，不管你选用的底层管理工具是什么。
 
@@ -10,7 +10,7 @@
 <img src=".\img\pictogram_internet01.png" width=104px>
 </div>
 
-## 6.3.2 工作原理
+## 工作原理
 Netplan 从 `/etc/netplan/*.yaml` 读取配置，配置可以是管理员或者系统安装人员配置； 也可以是云镜像或者其他操作系统部署设施自动生成。 在系统启动阶段早期， Netplan 在 `/run` 目录生成好配置文件并将设备控制权交给相关后台程序。
 
 <div align=center>
@@ -24,7 +24,7 @@ netplan 目前支持以下两种 网络管理工具 ：
 
 一言以蔽之，从前你需要根据不同的管理工具编写网络配置，现在 `Netplan` 将管理工具差异性给屏蔽了。 你只需按照 Netplan 规范编写 YAML 配置，不管底层管理工具是啥，一份配置走天下！
 
-## 6.3.3 配置
+## 配置
 很显然，没有配置， Netplan 啥都做不了。 最简单有用的配置片段如下：
 
 ```yaml
@@ -53,7 +53,7 @@ network:
 
 这个配置为 `enp0s3` 网卡开启 DHCP 自动获取地址； 为 `enp0s8` 网卡配置了一个静态 `IP 192.168.56.3` ，掩码是 `24` 位。
 
-### 配置示例
+## 各类配置示例
 
 - DHCP
 
@@ -96,7 +96,7 @@ network:
 
 所有配置项见 [官方文档](https://netplan.io/reference)
 
-## 6.3.4 命令
+## netplan选项
 netplan 操作命令提供两个子命令：
 
 - `netplan generate` ：以 `/etc/netplan` 配置为管理工具生成配置；
